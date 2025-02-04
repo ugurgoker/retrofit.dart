@@ -1717,7 +1717,7 @@ if (T != dynamic &&
             log.warning('${_displayString(bodyName.type)} must provide a `toMap()` method which return a Map.\n'
                 "It is programmer's responsibility to make sure the ${bodyName.type} is properly serialized");
             blocks.add(
-              declareFinal(dataVar).assign(refer(bodyName.displayName)).statement,
+                declareFinal(dataVar).assign(refer('JsonMapper.serialize(${bodyName.displayName})')).statement,
             );
           } else {
             blocks
@@ -1739,13 +1739,13 @@ if (T != dynamic &&
             log.warning('${_displayString(bodyName.type)} must provide a `toJson()` method which return a Map.\n'
                 "It is programmer's responsibility to make sure the ${_displayString(bodyName.type)} is properly serialized");
             blocks.add(
-              declareFinal(dataVar).assign(refer(bodyName.displayName)).statement,
+                declareFinal(dataVar).assign(refer('JsonMapper.serialize(${bodyName.displayName})')).statement,
             );
           } else if (_missingSerialize(ele.enclosingElement3, bodyName.type)) {
             log.warning('${_displayString(bodyName.type)} must provide a `serialize${_displayString(bodyName.type)}()` method which returns a Map.\n'
                 "It is programmer's responsibility to make sure the ${_displayString(bodyName.type)} is properly serialized");
             blocks.add(
-              declareFinal(dataVar).assign(refer(bodyName.displayName)).statement,
+                declareFinal(dataVar).assign(refer('JsonMapper.serialize(${bodyName.displayName})')).statement,
             );
           } else {
             blocks.add(
