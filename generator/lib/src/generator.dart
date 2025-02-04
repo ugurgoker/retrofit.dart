@@ -1074,7 +1074,7 @@ You should create a new class to encapsulate the response.
               }
             case retrofit.Parser.DartJsonMapper:
               mapperCode = refer(
-                'await IsolateHelper.parseJson<${_displayString(returnType)}>($_resultVar.data!)',
+                'await IsolateHelper.parseJson(() => ${_displayString(returnType)}.fromJson($_resultVar.data!))',
               );
               break;
             case retrofit.Parser.FlutterCompute:
