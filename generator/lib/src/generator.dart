@@ -1591,7 +1591,7 @@ if (T != dynamic &&
           case retrofit.Parser.MapSerializable:
             value = p.type.nullabilitySuffix == NullabilitySuffix.question ? refer(displayName).nullSafeProperty('toMap').call([]) : refer(displayName).property('toMap').call([]);
           case retrofit.Parser.DartJsonMapper:
-            value = refer(displayName);
+            value = 'JsonMapper.serialize(${refer(displayName)})';
           case retrofit.Parser.FlutterCompute:
             value = refer(
               'await compute(serialize${_displayString(p.type)}, ${p.displayName})',
