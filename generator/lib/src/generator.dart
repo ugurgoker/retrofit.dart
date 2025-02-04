@@ -1813,7 +1813,7 @@ ${bodyName.displayName} == null
       } else {
         /// @Body annotations with no type are assigned as is
         blocks.add(
-          declareFinal(dataVar).assign(refer(bodyName.displayName)).statement,
+          declareFinal(dataVar).assign(refer('JsonMapper.serialize(${bodyName.displayName})')).statement,
         );
       }
 
